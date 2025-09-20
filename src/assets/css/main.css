@@ -1,5 +1,5 @@
-@import url('https://fastly.jsdelivr.net/gh/FrecklyComb1728/blog@main/public/fonts/xiaolai.css');
-@import url('https://fastly.jsdelivr.net/npm/@fontsource/cascadia-code@5.2.3/index.min.css');
+@import url('https://cdn.smartcis.cn/gh/FrecklyComb1728/blog@main/public/fonts/xiaolai.css');
+@import url('https://jsdelivr.topthink.com/npm/@fontsource/cascadia-code@5.2.3/index.min.css');
 
 /* Tailwind CSS 将通过 nuxt.config.ts 从 CDN 加载 */
 @tailwind base;
