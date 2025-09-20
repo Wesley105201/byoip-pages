@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-h-screen">
     <!-- 导航 -->
     <Navigation />
     
@@ -58,7 +58,6 @@
     </div>
 
     <div class="container mx-auto px-4 py-8">
-      <!-- Become Sponsor Section -->
       <div class="text-center mb-12">
         <div class="bg-blue-50 border border-blue-200 rounded-lg p-6 max-w-2xl mx-auto">
           <h3 class="text-lg font-semibold text-blue-800 mb-2">成为赞助商</h3>
@@ -68,7 +67,7 @@
         </div>
       </div>
 
-      <!-- Error State -->
+      <!-- 错误状态 -->
       <div v-if="error" class="text-center py-12">
         <div class="bg-red-50 border border-red-200 rounded-lg p-6 max-w-md mx-auto">
           <svg class="mx-auto h-12 w-12 text-red-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -83,13 +82,11 @@
         </div>
       </div>
 
-      <!-- Sponsors List -->
       <div v-if="sponsors && sponsors.length > 0">
         <h2 class="text-2xl font-bold text-center mb-8 font-cascadia text-blue-600">
           赞助商列表
         </h2>
         
-        <!-- Sponsors in simple list format -->
         <div class="max-w-4xl mx-auto space-y-4">
           <div 
             v-for="sponsor in sponsors" 
@@ -129,11 +126,11 @@
             </div>
           </div>
         </div>
-
+        <div class="h-16"></div>
 
       </div>
 
-      <!-- Empty State -->
+      <!-- 空状态 -->
       <div v-else class="text-center py-12">
         <svg class="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M9 21h6a2 2 0 002-2V9a2 2 0 00-2-2H9a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -143,9 +140,6 @@
       </div>
     </div>
 
-
-
-    <!-- Image Modal -->
     <div 
       v-if="showModal" 
       class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50"
@@ -167,35 +161,32 @@
         </div>
       </div>
     </div>
+    <Footer />
   </div>
+  
 </template>
 
 <script setup lang="ts">
+import Footer from '~/components/Footer.vue'
 // 使用构建时注入的赞助商配置
 const sponsorsConfig = useSponsors()
 const sponsors = computed(() => sponsorsConfig.value?.sponsors || [])
 const error = ref(null)
 const refresh = () => window.location.reload()
-
-// Image modal functionality
 const showModal = ref(false)
 const modalImage = ref({ src: '', alt: '' })
-
 const openImageModal = (src: string, alt: string) => {
   modalImage.value = { src, alt }
   showModal.value = true
-  // Prevent body scroll when modal is open
   document.body.style.overflow = 'hidden'
 }
 
 const closeImageModal = () => {
   showModal.value = false
   modalImage.value = { src: '', alt: '' }
-  // Restore body scroll
   document.body.style.overflow = 'auto'
 }
 
-// Close modal on escape key
 onMounted(() => {
   const handleEscape = (e: KeyboardEvent) => {
     if (e.key === 'Escape' && showModal.value) {
@@ -203,15 +194,13 @@ onMounted(() => {
     }
   }
   document.addEventListener('keydown', handleEscape)
-  
-  // Cleanup on unmount
   onUnmounted(() => {
     document.removeEventListener('keydown', handleEscape)
     document.body.style.overflow = 'auto'
   })
 })
 
-// Set page head
+// 设置页面head
 useHead({
   title: '赞助支持 - NB 优选服务',
   meta: [

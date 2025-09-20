@@ -1,15 +1,15 @@
-# CDN IP 优选服务
+# NB 优选服务
 
 <div align="center">
 
-![CDN IP 优选服务](https://img.shields.io/badge/CDN-IP%20优选-blue?style=for-the-badge)
+![NB 优选服务](https://img.shields.io/badge/CDN-IP%20优选-blue?style=for-the-badge)
 ![Nuxt 3](https://img.shields.io/badge/Nuxt-3-00DC82?style=for-the-badge&logo=nuxt.js)
 ![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vue.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript)
 
 提供 CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
 
-[在线演示](https://www.byoip.top) · [使用文档](./docs/docs.md)
+[在线演示](https://www.byoip.top) · [使用文档](./docs/docs.md) · [配置教程](./docs/config.md)
 
 </div>
 
@@ -92,7 +92,7 @@ cdn-ip-optimizer/
 
 网站内容通过 JSON 配置文件管理，支持热更新。详细配置说明请参考：
 
-📖 **[完整配置文档](./docs/docs.md)**
+📖 **[完整配置文档](./docs/docs.md)** | 📝 **[配置教程](./docs/config.md)**
 
 ### 快速配置
 

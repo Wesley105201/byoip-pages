@@ -1,22 +1,19 @@
-/* Global Styles for Nuxt Domain Website */
-
-/* Font Definitions - 使用 CSS 文件导入 (必须在最前面) */
 @import url('https://fastly.jsdelivr.net/gh/FrecklyComb1728/blog@main/public/fonts/xiaolai.css');
 @import url('https://fastly.jsdelivr.net/npm/@fontsource/cascadia-code@5.2.3/index.min.css');
 
-/* Tailwind CSS will be loaded from CDN via nuxt.config.ts */
+/* Tailwind CSS 将通过 nuxt.config.ts 从 CDN 加载 */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Font Stack */
+/* 自定义字体堆栈 */
 :root {
   --font-chinese: 'xiaolai', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
   --font-english: 'Cascadia Code', 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
   --font-mixed: 'Cascadia Code', 'xiaolai', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', monospace, sans-serif;
 }
 
-/* Base Styles */
+/* 基础样式 */
 html {
   font-family: var(--font-mixed);
   -webkit-font-smoothing: antialiased;
@@ -30,7 +27,7 @@ body {
   background-color: #fff;
 }
 
-/* Typography Classes */
+/* 字体类 */
 .font-chinese {
   font-family: var(--font-chinese);
 }
@@ -43,12 +40,12 @@ body {
   font-family: var(--font-mixed);
 }
 
-/* Fallback for font loading failures */
+/* 字体加载失败回退 */
 .font-fallback {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Font loading states */
+/* 字体加载状态 */
 .fonts-loading {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
@@ -61,7 +58,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
-/* Font loading animation */
+/* 字体加载动画 */
 @keyframes fontFadeIn {
   from {
     opacity: 0.7;
@@ -76,7 +73,7 @@ body {
   animation: fontFadeIn 0.3s ease-in-out;
 }
 
-/* Responsive font sizes */
+/* 响应式字体大小 */
 @media (max-width: 640px) {
   html {
     font-size: 14px;
@@ -95,7 +92,7 @@ body {
   }
 }
 
-/* Utility classes for font management */
+/* 字体管理的工具类 */
 @layer utilities {
   .font-loading-skeleton {
     background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
@@ -113,7 +110,7 @@ body {
     }
   }
 
-  /* Font weight utilities for custom fonts */
+  /* 自定义字体的字体重量工具类 */  
   .font-xiaolai {
     font-family: 'xiaolai', var(--font-chinese);
   }
@@ -122,14 +119,14 @@ body {
     font-family: 'Cascadia Code', var(--font-english);
   }
 
-  /* Text rendering optimization */
+  /* 文本渲染优化 */
   .text-optimize {
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* Responsive text sizes with custom fonts */
+  /* 响应式文本大小，自定义字体 */
   .text-responsive {
     font-size: clamp(0.875rem, 2.5vw, 1rem);
     line-height: 1.6;
@@ -146,7 +143,7 @@ body {
   }
 }
 
-/* Navigation Transition Styles */
+/* 导航过渡样式 */
 .page-transitioning {
   pointer-events: none;
 }
@@ -166,7 +163,7 @@ body {
   transform: translateY(-10px);
 }
 
-/* Loading indicator for navigation */
+/* 导航过渡样式中的加载指示器 */
 .navigation-loading {
   position: fixed;
   top: 0;
@@ -189,12 +186,12 @@ body {
   }
 }
 
-/* Smooth scroll behavior */
+/* 平滑滚动行为 */
 html {
   scroll-behavior: smooth;
 }
 
-/* Link hover effects for better UX */
+/* 链接悬停效果，提升用户体验 */
 a {
   transition: color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
@@ -203,7 +200,7 @@ a:hover {
   opacity: 0.8;
 }
 
-/* Preload indicator */
+/* 预加载指示器 */
 .link-preloading {
   position: relative;
 }
@@ -230,7 +227,7 @@ a:hover {
   }
 }
 
-/* Component-specific font styles */
+/* 组件特定字体样式 */
 @layer components {
   .card-title {
     font-family: 'Cascadia Code', var(--font-english);
@@ -274,10 +271,9 @@ a:hover {
   }
 }
 
-/* Enh
-anced Error Handling and Loading States */
+/* 增强的错误处理和加载状态 */
 
-/* Error boundary styles */
+/* 错误边界样式 */
 .error-boundary {
   border-left: 4px solid #ef4444;
   background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
@@ -287,7 +283,7 @@ anced Error Handling and Loading States */
   color: #ef4444;
 }
 
-/* Loading spinner improvements */
+/* 加载旋转器改进 */
 .loading-spinner {
   animation: spin 1s linear infinite;
 }
@@ -302,7 +298,7 @@ anced Error Handling and Loading States */
   }
 }
 
-/* Skeleton loading animations */
+/* 骨架屏加载动画 */
 @keyframes skeleton-loading {
   0% {
     background-position: -200px 0;
@@ -319,7 +315,7 @@ anced Error Handling and Loading States */
   animation: skeleton-loading 1.5s infinite;
 }
 
-/* Image loading states */
+/* 图像加载状态 */
 .image-loading {
   background: linear-gradient(90deg, #f3f4f6 25%, #e5e7eb 50%, #f3f4f6 75%);
   background-size: 200px 100%;
@@ -334,7 +330,7 @@ anced Error Handling and Loading States */
   justify-content: center;
 }
 
-/* Enhanced font loading states */
+/* 字体加载状态 */
 .fonts-partial .font-chinese {
   font-family: 'xiaolai', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
 }
@@ -343,7 +339,7 @@ anced Error Handling and Loading States */
   font-family: 'Cascadia Code', 'Fira Code', 'Monaco', 'Consolas', monospace;
 }
 
-/* Retry button animations */
+/* 重试按钮动画 s */
 .retry-button {
   transition: all 0.2s ease-in-out;
   position: relative;
@@ -374,7 +370,7 @@ anced Error Handling and Loading States */
   left: 100%;
 }
 
-/* Fade in animations for loaded content */
+/* 为加载的内容添加淡入动画 */
 .fade-in {
   animation: fadeIn 0.3s ease-in-out;
 }
@@ -391,7 +387,7 @@ anced Error Handling and Loading States */
   }
 }
 
-/* Loading state indicators */
+/* 加载状态指标 */
 .loading-overlay {
   position: relative;
 }
@@ -411,7 +407,7 @@ anced Error Handling and Loading States */
   justify-content: center;
 }
 
-/* Error toast notifications */
+/* 错误 toast 通知 */
 .error-toast {
   position: fixed;
   top: 20px;
@@ -438,7 +434,7 @@ anced Error Handling and Loading States */
   }
 }
 
-/* Success toast notifications */
+/* 成功 toast 通知 */
 .success-toast {
   position: fixed;
   top: 20px;
@@ -453,7 +449,7 @@ anced Error Handling and Loading States */
   animation: slideInRight 0.3s ease-out;
 }
 
-/* Lazy loading placeholder improvements */
+/* 懒加载占位符改进 */
 .lazy-placeholder {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border: 1px solid #e2e8f0;
@@ -480,7 +476,7 @@ anced Error Handling and Loading States */
   }
 }
 
-/* Resource loading indicators */
+/* 资源加载指标 */
 .resource-loading-bar {
   position: fixed;
   top: 0;
@@ -503,7 +499,7 @@ anced Error Handling and Loading States */
   }
 }
 
-/* Enhanced accessibility for error states */
+/* 增强的无障碍错误状态 */
 .error-boundary:focus-within {
   outline: 2px solid #3b82f6;
   outline-offset: 2px;
@@ -514,7 +510,7 @@ anced Error Handling and Loading States */
   outline-offset: 2px;
 }
 
-/* Dark mode support for error states */
+/* 暗黑模式支持错误状态 */
 @media (prefers-color-scheme: dark) {
   .error-boundary {
     background: linear-gradient(135deg, #450a0a 0%, #7f1d1d 100%);
@@ -535,7 +531,7 @@ anced Error Handling and Loading States */
   }
 }
 
-/* Reduced motion support */
+/* 减少运动支持 */
 @media (prefers-reduced-motion: reduce) {
 
   .skeleton-loading,

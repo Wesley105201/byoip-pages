@@ -46,10 +46,9 @@ export const useErrorHandler = () => {
 
     notifications.value.push(newNotification)
     
-    // 更新统计数据
+    // 更新统计
     errorStats.totalErrors++
     if (notification.type === 'error') {
-      // Try to categorize the error
       if (notification.message.includes('config') || notification.message.includes('配置')) {
         errorStats.configErrors++
       } else if (notification.message.includes('font') || notification.message.includes('字体')) {
@@ -61,7 +60,7 @@ export const useErrorHandler = () => {
       }
     }
 
-    // Auto-remove after duration
+    // 在持续时间后自动删除
     if (newNotification.duration && newNotification.duration > 0) {
       setTimeout(() => {
         removeNotification(id)
@@ -91,7 +90,6 @@ export const useErrorHandler = () => {
         {
           label: '重试',
           action: () => {
-            // This will be handled by the calling component
             console.log('Retry action triggered for config error')
           }
         }
@@ -149,7 +147,7 @@ export const useErrorHandler = () => {
         {
           label: '检查网络',
           action: () => {
-            window.open('https://www.google.com', '_blank')
+            window.open('https://www.gov.cn', '_blank')
           }
         }
       ]
@@ -186,7 +184,7 @@ export const useErrorHandler = () => {
   const getErrorSummary = () => {
     const recentErrors = notifications.value
       .filter(n => n.type === 'error')
-      .filter(n => Date.now() - n.timestamp.getTime() < 300000) // Last 5 minutes
+      .filter(n => Date.now() - n.timestamp.getTime() < 300000)
       .length
 
     return {
@@ -212,7 +210,6 @@ export const useErrorHandler = () => {
     return JSON.stringify(errorLog, null, 2)
   }
 
-  // Global error handler for unhandled errors
   const setupGlobalErrorHandler = () => {
     if (typeof window !== 'undefined') {
       window.addEventListener('error', (event) => {
@@ -231,7 +228,7 @@ export const useErrorHandler = () => {
     }
   }
 
-  // Cleanup function
+  // 清理函数
   const cleanup = () => {
     clearAllNotifications()
     if (typeof window !== 'undefined') {
@@ -241,16 +238,11 @@ export const useErrorHandler = () => {
   }
 
   return {
-    // State
     notifications: readonly(notifications),
     errorStats: readonly(errorStats),
-
-    // Methods
     addNotification,
     removeNotification,
     clearAllNotifications,
-
-    // Specific error handlers
     handleConfigError,
     handleResourceError,
     handleFontError,
@@ -258,8 +250,6 @@ export const useErrorHandler = () => {
     handleSuccess,
     handleWarning,
     handleInfo,
-
-    // Utilities
     getErrorSummary,
     exportErrorLog,
     setupGlobalErrorHandler,

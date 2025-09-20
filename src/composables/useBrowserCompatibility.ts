@@ -1,5 +1,5 @@
 /**
- * Browser compatibility detection and optimization composable
+ * 浏览器兼容性检测
  */
 
 interface BrowserInfo {
@@ -37,7 +37,7 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   const features = ref<CompatibilityFeatures | null>(null)
 
   /**
-   * Detect browser information
+   * 检测浏览器信息
    */
   const getBrowserInfo = (): BrowserInfo => {
     if (browserInfo.value) {
@@ -52,7 +52,7 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
     let version = 'Unknown'
     let engine = 'Unknown'
 
-    // Detect browser
+    // 检测浏览器
     if (userAgent.includes('Chrome') && !userAgent.includes('Edg')) {
       name = 'Chrome'
       const match = userAgent.match(/Chrome\/(\d+)/)
@@ -93,7 +93,7 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Check feature support
+   * 检查功能支持
    */
   const checkFeatureSupport = (): CompatibilityFeatures => {
     if (features.value) {
@@ -113,13 +113,13 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
       fetch: 'fetch' in window
     }
 
-    // Check WebP support
+    // 检查 WebP 支持
     const canvas = document.createElement('canvas')
     canvas.width = 1
     canvas.height = 1
     support.webp = canvas.toDataURL('image/webp').indexOf('data:image/webp') === 0
 
-    // Check AVIF support (async, will update later)
+    // 检查 AVIF 支持（异步，稍后更新）
     checkAVIFSupport().then(avifSupported => {
       support.avif = avifSupported
       features.value = { ...support }
@@ -130,7 +130,7 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Check AVIF support asynchronously
+   * 检查 AVIF 支持（异步）
    */
   const checkAVIFSupport = (): Promise<boolean> => {
     return new Promise((resolve) => {
@@ -142,28 +142,28 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Apply polyfills for unsupported features
+   * 应用不支持的功能的填充
    */
   const applyPolyfills = async (): Promise<void> => {
     const support = checkFeatureSupport()
     const polyfillsNeeded: string[] = []
 
-    // IntersectionObserver polyfill
+    // IntersectionObserver 填充程序
     if (!support.intersectionObserver) {
       polyfillsNeeded.push('intersection-observer')
     }
 
-    // Fetch polyfill
+    // 获取 polyfill
     if (!support.fetch) {
       polyfillsNeeded.push('fetch')
     }
 
-    // CSS Custom Properties polyfill for IE
+    // CSS 自定义属性填充程序（用于 IE）
     if (!support.customProperties) {
       polyfillsNeeded.push('css-vars-ponyfill')
     }
 
-    // Load polyfills from CDN
+    // 从 CDN 加载 polyfill
     if (polyfillsNeeded.length > 0) {
       const polyfillUrl = `https://polyfill.io/v3/polyfill.min.js?features=${polyfillsNeeded.join(',')}`
       
@@ -177,7 +177,9 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Load script dynamically
+   * 动态加载脚本
+   * @param src 脚本 URL
+   * @returns 加载脚本的 Promise
    */
   const loadScript = (src: string): Promise<void> => {
     return new Promise((resolve, reject) => {
@@ -190,13 +192,14 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Optimize for specific browser
+   * 针对特定浏览器进行优化
+   * @description 针对不同浏览器添加特定的 CSS 类名和优化策略
    */
   const optimizeForBrowser = (): void => {
     const browser = getBrowserInfo()
     const support = checkFeatureSupport()
 
-    // Add browser-specific classes
+    // 针对特定浏览器添加 CSS 类名
     document.documentElement.classList.add(`browser-${browser.name.toLowerCase()}`)
     document.documentElement.classList.add(`engine-${browser.engine.toLowerCase()}`)
     
@@ -204,38 +207,38 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
       document.documentElement.classList.add('mobile')
     }
 
-    // Feature-based classes
+    // 基于功能添加 CSS 类名
     Object.entries(support).forEach(([feature, supported]) => {
       document.documentElement.classList.add(
         supported ? `supports-${feature}` : `no-${feature}`
       )
     })
 
-    // Browser-specific optimizations
+    // 浏览器特定的优化
     switch (browser.name) {
       case 'Safari':
-        // Safari-specific optimizations
+        // Safari特定优化
         optimizeForSafari()
         break
       case 'Firefox':
-        // Firefox-specific optimizations
+        // Firefox特定优化
         optimizeForFirefox()
         break
       case 'Internet Explorer':
-        // IE-specific optimizations
+        // IE特定优化
         optimizeForIE()
         break
     }
   }
 
   /**
-   * Safari-specific optimizations
+   * Safari特定优化
    */
   const optimizeForSafari = (): void => {
-    // Disable smooth scrolling on Safari (performance issues)
+    // 在Safari上禁用平滑滚动（性能问题）
     document.documentElement.style.scrollBehavior = 'auto'
     
-    // Add Safari-specific CSS fixes
+    // Safari特定的 CSS 修复
     const style = document.createElement('style')
     style.textContent = `
       /* Safari font rendering fix */
@@ -253,7 +256,7 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Firefox-specific optimizations
+   * Firefox特定优化
    */
   const optimizeForFirefox = (): void => {
     // Firefox scrollbar styling
@@ -269,24 +272,27 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * IE-specific optimizations
+   * IE特定优化
    */
   const optimizeForIE = (): void => {
-    // Add IE compatibility warnings
+    // 在IE上禁用平滑滚动（性能问题）
+    document.documentElement.style.scrollBehavior = 'auto'
+    
+    // 在IE上添加兼容性警告
     console.warn('Internet Explorer detected. Some features may not work properly.')
     
-    // Disable modern features for IE
+    // 禁用IE的现代功能
     document.documentElement.classList.add('legacy-browser')
   }
 
   /**
-   * Check if browser is modern
+   * 检查浏览器是否为现代浏览器
    */
   const isModernBrowser = (): boolean => {
     const browser = getBrowserInfo()
     const support = checkFeatureSupport()
     
-    // Define modern browser criteria
+    // 定义现代浏览器的标准
     const modernCriteria = [
       support.es6Modules,
       support.fetch,
@@ -299,13 +305,13 @@ export const useBrowserCompatibility = (): BrowserCompatibilityManager => {
   }
 
   /**
-   * Check if polyfills should be used
+   * 检查是否需要使用 polyfill
    */
   const shouldUsePolyfills = (): boolean => {
     return !isModernBrowser()
   }
 
-  // Initialize on client side
+  // 在客户端初始化
   if (import.meta.client) {
     onMounted(() => {
       getBrowserInfo()

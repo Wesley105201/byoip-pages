@@ -1,7 +1,3 @@
-/**
- * 简化的字体管理 - 依赖 CSS @import 加载的字体
- */
-
 interface SimpleFontManager {
   isFontLoaded: (family: string) => boolean
   loadFonts: () => Promise<void>

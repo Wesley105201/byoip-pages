@@ -51,7 +51,7 @@ export const useResourceLoader = () => {
     }
 
     if (state.loading) {
-      // Wait for existing load to complete
+      // 等待现有负载完成
       return new Promise((resolve) => {
         const checkLoaded = () => {
           if (state.loaded) {
@@ -97,7 +97,7 @@ export const useResourceLoader = () => {
 
   const loadCSSFromUrl = (url: string, timeout: number): Promise<boolean> => {
     return new Promise((resolve, reject) => {
-      // Check if already loaded
+      // 检查是否已加载
       const existingLink = document.querySelector(`link[href="${url}"]`)
       if (existingLink) {
         resolve(true)
@@ -189,7 +189,6 @@ export const useResourceLoader = () => {
 
   const loadScriptFromUrl = (url: string, timeout: number): Promise<boolean> => {
     return new Promise((resolve, reject) => {
-      // Check if already loaded
       const existingScript = document.querySelector(`script[src="${url}"]`)
       if (existingScript) {
         resolve(true)

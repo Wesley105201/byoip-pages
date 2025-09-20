@@ -70,7 +70,7 @@ const handleError = () => {
   hasError.value = true
 }
 
-// Reset states when src changes
+// 当 src 变化时重置状态
 watch(() => props.src, () => {
   isLoading.value = true
   hasError.value = false

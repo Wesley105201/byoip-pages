@@ -1,17 +1,17 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900">
-    <!-- 导航组件 -->
+    <!-- Navigation Component -->
     <Navigation />
     
-    <!-- 主内容区域 -->
-    <main>
+    <!-- Main Content Area -->
+    <main class="pb-24"> <!-- 添加底部内边距，防止内容被固定页脚遮挡 -->
       <NuxtPage />
     </main>
   </div>
 </template>
 
 <script setup lang="ts">
-// 设置基本头部配置
+// 设置基本head
 useHead({
   htmlAttrs: {
     lang: 'zh-CN'

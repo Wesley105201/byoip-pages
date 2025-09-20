@@ -51,7 +51,7 @@ export const useCDN = (): CDNManager => {
   }
 
   /**
-   * Build GitHub CDN URL using template and variables
+   * github 模板
    */
   const buildGithubUrl = (owner: string, repo: string, branch: string, path: string): string => {
     if (!config.value?.github) {
@@ -69,7 +69,7 @@ export const useCDN = (): CDNManager => {
   }
 
   /**
-   * Build npm CDN URL using template and variables
+   * npm 模板
    */
   const buildNpmUrl = (packageName: string, version: string, path: string): string => {
     if (!config.value?.npm) {
@@ -86,28 +86,25 @@ export const useCDN = (): CDNManager => {
   }
 
   /**
-   * Update mirror for GitHub or npm
+   * 更新 GitHub / npm 的镜像
    */
   const updateMirror = async (type: 'github' | 'npm', mirror: string): Promise<void> => {
     if (!config.value) {
       throw new Error('CDN configuration not loaded')
     }
 
-    // Validate mirror is in available list if alternatives exist
+    // 验证镜像是否在可用列表中
     const availableMirrors = getAvailableMirrors()
     if (availableMirrors.length > 0 && !availableMirrors.includes(mirror)) {
       throw new Error(`Invalid mirror: ${mirror}. Available mirrors: ${availableMirrors.join(', ')}`)
     }
 
-    // Update the configuration
+    // 更新配置
     config.value[type].mirror = mirror
-    
-    // Note: In a real application, you might want to persist this change
-    // For now, it's only updated in memory
   }
 
   /**
-   * Get list of available mirrors
+   * 获取可用镜像列表
    */
   const getAvailableMirrors = (): string[] => {
     return config.value?.alternatives?.mirrors || []

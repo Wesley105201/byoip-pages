@@ -61,21 +61,21 @@ export interface CDNMirrorConfig {
   }
 }
 
-// Configuration Validation Types
+// 配置验证类型
 export interface ConfigValidationResult {
   isValid: boolean
   errors: string[]
   warnings?: string[]
 }
 
-// API Response Types
+// API响应类型
 export interface ConfigResponse<T> {
   data: T | null
   error: string | null
   loading: boolean
 }
 
-// Configuration Status Types
+// 配置状态类型
 export interface ConfigStatus {
   loaded: boolean
   loading: boolean
@@ -91,7 +91,7 @@ export interface ConfigManagerStatus {
   cdn: ConfigStatus
 }
 
-// Performance Configuration Types
+// 性能配置类型
 export interface PerformanceConfig {
   optimization: {
     preload: {

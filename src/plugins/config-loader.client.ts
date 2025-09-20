@@ -8,7 +8,7 @@ export default defineNuxtPlugin(() => {
   if (import.meta.server) return
 
   try {
-    // 获取嵌入配置
+    // 配置已通过构建时嵌入到 window.__APP_CONFIG__
     const appConfig = (window as any).__APP_CONFIG__
     
     if (!appConfig) {
@@ -17,7 +17,7 @@ export default defineNuxtPlugin(() => {
     }
 
     // 记录配置加载状态
-    console.log('嵌入配置加载成功:', {
+    console.log('Embedded configuration loaded successfully:', {
       services: appConfig.services?.services?.length || 0,
       partners: appConfig.partners?.partners?.length || 0,
       sponsors: appConfig.sponsors?.sponsors?.length || 0

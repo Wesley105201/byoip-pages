@@ -39,6 +39,8 @@ const navigationLinks = [
   { path: '/', label: '首页' },
   { path: '/partners', label: '合作伙伴' },
   { path: '/sponsor', label: '赞助商' },
+  { path: '/about', label: '关于我们' },
+  { path: '/privacy', label: '隐私政策' },
 ]
 
 // 获取路由信息
@@ -57,7 +59,7 @@ const handleNavigation = async (to: string, event: Event) => {
   await navigateTo(to)
 }
 
-console.log('导航组件已加载')
+console.log('Navigation component loaded')
 </script>
 
 <style scoped>

@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <!-- 导航 -->
+  <div class="min-h-screen">
+    <!-- Navigation -->
     <Navigation />
     
     <div class="container mx-auto px-4 py-8">
     
-      <!-- 头部区域 -->
+      <!-- 标题部分 -->
       <div class="text-center mb-12">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-cascadia">NB 优选服务</h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto font-chinese">
           CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
         </p>
         
-        <!-- 免费服务提示 -->
+        <!-- 提示 -->
         <div class="mt-8 mx-auto max-w-2xl">
           <div class="bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg p-4 shadow-sm">
             <div class="flex items-center justify-center space-x-2 text-green-700">
@@ -42,9 +42,9 @@
         </div>
       </div>
 
-      <!-- 服务列表 -->
+      <!-- 服务网格 -->
       <div v-if="services?.services && services.services.length > 0" class="space-y-8">
-        <!-- 服务统计 -->
+        <!-- 服务状态 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div class="bg-green-50 rounded-lg p-6 text-center">
             <div class="text-2xl font-bold text-green-600 font-cascadia">{{ activeServicesCount }}</div>
@@ -55,13 +55,12 @@
             <div class="text-sm text-yellow-700">维护中</div>
           </div>
           <div class="bg-blue-50 rounded-lg p-6 text-center">
-            <!-- <div class="text-2xl font-bold text-blue-600 font-cascadia">{{ totalIPs }}</div> -->
             <div class="text-2xl font-bold text-blue-600 font-cascadia">1000+</div>
             <div class="text-sm text-blue-700">优选 IP 总数</div>
           </div>
         </div>
 
-        <!-- Services List -->
+        <!-- 服务列表 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div
             v-for="service in services.services"
@@ -72,7 +71,7 @@
         </div>
       </div>
 
-      <!-- Empty State -->
+      <!-- 空状态 -->
       <div v-else class="text-center py-12">
         <svg class="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -86,9 +85,11 @@
       </div>
     </div>
   </div>
+  <Footer />
 </template>
 
 <script setup lang="ts">
+import Footer from '~/components/Footer.vue'
 
 // 使用响应式文本适配
 const { finalText, textClasses } = useResponsiveText({
@@ -119,7 +120,6 @@ const reloadServices = () => {
   window.location.reload()
 }
 
-// Computed properties for statistics
 const activeServicesCount = computed(() => {
   return services.value?.services?.filter(service => service.status === 'active').length || 0
 })
@@ -128,27 +128,14 @@ const maintenanceServicesCount = computed(() => {
   return services.value?.services?.filter(service => service.status === 'maintenance').length || 0
 })
 
-// const totalIPs = computed(() => {
-//   return services.value?.services?.reduce((total, service) => {
-//     return total + (service.optimizedIPs?.length || 0)
-//   }, 0) || 0
-// })
-
-
-
-// Set page head
 useHead({
-  title: 'CDN IP 优选服务 - 首页',
+  title: 'NB 优选服务 - 首页',
   meta: [
     {
       name: 'description',
-      content: 'CloudFlare、CloudFront、EdgeOne 等全球主流云服务商的 CDN IP 优选、节点状态监测服务'
+      content: 'CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务'
     }
   ]
 })
 
-// Cleanup on unmount
-onUnmounted(() => {
-  // Configuration cleanup is handled automatically by useStaticConfig
-})
 </script>

@@ -28,7 +28,7 @@ interface AppConfigManager {
   getConfig: <T extends keyof AppConfig>(key: T) => AppConfig[T]
 }
 
-// 默认配置，防止配置加载失败
+// 默认配置，防止构建时配置加载失败
 const defaultConfig: AppConfig = {
   services: { services: [] },
   partners: { partners: [] },

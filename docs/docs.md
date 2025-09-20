@@ -1,4 +1,4 @@
-# CDN IP 优选服务 - 配置文档
+# NB 优选服务 - 配置文档
 
 ## 📋 目录
 
@@ -442,11 +442,11 @@ export default defineNuxtConfig({
 export default defineNuxtConfig({
   app: {
     head: {
-      title: 'CDN IP 优选服务',
+      title: 'NB 优选服务',
       meta: [
         { name: 'description', content: '全球主流 CDN 服务商 IP 优选服务' },
         { name: 'keywords', content: 'CDN,IP优选,CloudFlare,网络优化' },
-        { property: 'og:title', content: 'CDN IP 优选服务' },
+        { property: 'og:title', content: 'NB 优选服务' },
         { property: 'og:description', content: '全球主流 CDN 服务商 IP 优选服务' },
         { property: 'og:image', content: '/og-image.png' }
       ]

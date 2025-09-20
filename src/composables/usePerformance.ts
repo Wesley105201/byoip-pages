@@ -1,7 +1,3 @@
-/**
- * Performance monitoring and optimization composable
- */
-
 interface PerformanceMetrics {
   pageLoadTime: number
   firstContentfulPaint: number
@@ -32,18 +28,12 @@ export const usePerformance = (): PerformanceManager => {
   const measurements = new Map<string, number>()
   const metrics = ref<Partial<PerformanceMetrics>>({})
   
-  /**
-   * Start performance measurement
-   */
   const startMeasurement = (name: string): void => {
     if (typeof performance !== 'undefined') {
       measurements.set(name, performance.now())
     }
   }
 
-  /**
-   * End performance measurement and return duration
-   */
   const endMeasurement = (name: string): number => {
     if (typeof performance !== 'undefined' && measurements.has(name)) {
       const startTime = measurements.get(name)!
@@ -55,16 +45,9 @@ export const usePerformance = (): PerformanceManager => {
     return 0
   }
 
-  /**
-   * Get current performance metrics
-   */
   const getMetrics = (): Partial<PerformanceMetrics> => {
     return { ...metrics.value }
   }
-
-  /**
-   * Get resource timing information
-   */
   const getResourceTimings = (): ResourceTiming[] => {
     if (typeof performance === 'undefined' || !performance.getEntriesByType) {
       return []
@@ -79,9 +62,6 @@ export const usePerformance = (): PerformanceManager => {
     }))
   }
 
-  /**
-   * Determine resource type from URL
-   */
   const getResourceType = (url: string): string => {
     if (url.includes('.css')) return 'stylesheet'
     if (url.includes('.js')) return 'script'
@@ -90,9 +70,6 @@ export const usePerformance = (): PerformanceManager => {
     return 'other'
   }
 
-  /**
-   * Measure Core Web Vitals
-   */
   const measureCoreWebVitals = async (): Promise<Partial<PerformanceMetrics>> => {
     const webVitals: Partial<PerformanceMetrics> = {}
 
@@ -100,13 +77,11 @@ export const usePerformance = (): PerformanceManager => {
       return webVitals
     }
 
-    // First Contentful Paint (FCP)
     const fcpEntry = performance.getEntriesByName('first-contentful-paint')[0]
     if (fcpEntry) {
       webVitals.firstContentfulPaint = fcpEntry.startTime
     }
 
-    // Largest Contentful Paint (LCP)
     if ('PerformanceObserver' in window) {
       try {
         await new Promise<void>((resolve) => {
@@ -121,7 +96,6 @@ export const usePerformance = (): PerformanceManager => {
           })
           observer.observe({ entryTypes: ['largest-contentful-paint'] })
           
-          // Timeout after 5 seconds
           setTimeout(() => {
             observer.disconnect()
             resolve()
@@ -131,7 +105,6 @@ export const usePerformance = (): PerformanceManager => {
         console.warn('LCP measurement failed:', error)
       }
 
-      // Cumulative Layout Shift (CLS)
       try {
         await new Promise<void>((resolve) => {
           let clsValue = 0
@@ -144,8 +117,7 @@ export const usePerformance = (): PerformanceManager => {
             webVitals.cumulativeLayoutShift = clsValue
           })
           observer.observe({ entryTypes: ['layout-shift'] })
-          
-          // Stop observing after 5 seconds
+
           setTimeout(() => {
             observer.disconnect()
             resolve()
@@ -155,7 +127,6 @@ export const usePerformance = (): PerformanceManager => {
         console.warn('CLS measurement failed:', error)
       }
 
-      // First Input Delay (FID)
       try {
         await new Promise<void>((resolve) => {
           const observer = new PerformanceObserver((list) => {
@@ -167,8 +138,7 @@ export const usePerformance = (): PerformanceManager => {
             resolve()
           })
           observer.observe({ entryTypes: ['first-input'] })
-          
-          // Timeout after 10 seconds
+
           setTimeout(() => {
             observer.disconnect()
             resolve()
@@ -179,7 +149,6 @@ export const usePerformance = (): PerformanceManager => {
       }
     }
 
-    // Navigation timing
     const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming
     if (navigation) {
       webVitals.pageLoadTime = navigation.loadEventEnd - navigation.fetchStart
@@ -190,9 +159,6 @@ export const usePerformance = (): PerformanceManager => {
     return webVitals
   }
 
-  /**
-   * Optimize images with lazy loading and WebP support
-   */
   const optimizeImages = (): void => {
     if (typeof document === 'undefined') return
 
@@ -206,15 +172,14 @@ export const usePerformance = (): PerformanceManager => {
             const src = img.dataset.src
             
             if (src) {
-              // Check WebP support
+              // 检查 WebP 支持
               const supportsWebP = document.createElement('canvas')
                 .toDataURL('image/webp')
                 .indexOf('data:image/webp') === 0
               
               if (supportsWebP && src.includes('.jpg') || src.includes('.png')) {
                 const webpSrc = src.replace(/\.(jpg|png)$/i, '.webp')
-                
-                // Try WebP first, fallback to original
+
                 const testImg = new Image()
                 testImg.onload = () => {
                   img.src = webpSrc
@@ -242,7 +207,7 @@ export const usePerformance = (): PerformanceManager => {
 
       images.forEach(img => imageObserver.observe(img))
     } else {
-      // Fallback for browsers without IntersectionObserver
+      // 对于没有IntersectionObserver的浏览器的备用选项
       images.forEach(img => {
         const src = (img as HTMLImageElement).dataset.src
         if (src) {
@@ -253,13 +218,9 @@ export const usePerformance = (): PerformanceManager => {
     }
   }
 
-  /**
-   * Enable lazy loading for various elements
-   */
   const enableLazyLoading = (): void => {
     if (typeof document === 'undefined') return
 
-    // Lazy load components
     const lazyComponents = document.querySelectorAll('[data-lazy-component]')
     
     if ('IntersectionObserver' in window) {
@@ -270,7 +231,6 @@ export const usePerformance = (): PerformanceManager => {
             const componentName = element.dataset.lazyComponent
             
             if (componentName) {
-              // Trigger component loading
               element.dispatchEvent(new CustomEvent('lazy-load', {
                 detail: { componentName }
               }))
@@ -287,13 +247,9 @@ export const usePerformance = (): PerformanceManager => {
     }
   }
 
-  /**
-   * Initialize performance monitoring
-   */
   const initializePerformanceMonitoring = (): void => {
     if (typeof window === 'undefined') return
 
-    // Monitor long tasks
     if ('PerformanceObserver' in window) {
       try {
         const longTaskObserver = new PerformanceObserver((list) => {
@@ -309,7 +265,6 @@ export const usePerformance = (): PerformanceManager => {
       }
     }
 
-    // Monitor memory usage
     if ('memory' in performance) {
       const memoryInfo = (performance as any).memory
       console.log('Memory usage:', {
@@ -318,8 +273,6 @@ export const usePerformance = (): PerformanceManager => {
         limit: Math.round(memoryInfo.jsHeapSizeLimit / 1024 / 1024) + 'MB'
       })
     }
-
-    // Measure initial metrics
     setTimeout(() => {
       measureCoreWebVitals().then(vitals => {
         console.log('Core Web Vitals:', vitals)
@@ -327,7 +280,6 @@ export const usePerformance = (): PerformanceManager => {
     }, 1000)
   }
 
-  // Initialize on client side
   if (import.meta.client) {
     onMounted(() => {
       initializePerformanceMonitoring()

@@ -43,7 +43,7 @@
             </div>
           </div>
           
-          <!-- Progress bar for auto-dismiss -->
+          <!-- 自动消失进度条 -->
           <div
             v-if="notification.duration && notification.duration > 0"
             class="mt-2 w-full bg-gray-200 rounded-full h-1"
@@ -68,7 +68,7 @@ import { computed } from 'vue'
 
 const { notifications, removeNotification } = useErrorHandler()
 
-// Icon components
+// 图标组件
 const ErrorIcon = () => h('svg', {
   class: 'w-5 h-5',
   fill: 'none',

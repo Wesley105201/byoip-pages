@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="min-h-screen">
     <!-- 导航 -->
     <Navigation />
     
@@ -46,10 +46,12 @@
         <p class="text-gray-500">请稍后再试或联系管理员</p>
       </div>
     </div>
+    <Footer />
   </div>
 </template>
 
 <script setup lang="ts">
+import Footer from '~/components/Footer.vue'
 // 使用构建时注入的合作伙伴配置
 const partnersConfig = usePartners()
 const partners = computed(() => partnersConfig.value?.partners || [])
@@ -58,7 +60,7 @@ const refresh = () => window.location.reload()
 
 
 
-// Set page head
+// 设置页面head
 useHead({
   title: '技术合伙人 - NB 优选服务',
   meta: [

@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white rounded-lg shadow-md border hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-    <!-- Sponsor Level Badge (Top) -->
+    <!-- 赞助商级别徽章（顶部） -->
     <div class="px-4 pt-4 pb-2">
       <div class="flex justify-center">
         <span 
@@ -12,7 +12,7 @@
       </div>
     </div>
     
-    <!-- Sponsor Logo -->
+    <!-- 赞助商logo -->
     <div class="px-6 pb-4">
       <div class="flex justify-center mb-4">
         <ImageLoader
@@ -24,24 +24,24 @@
         />
       </div>
       
-      <!-- Sponsor Name -->
+      <!-- 赞助商名称 -->
       <h3 class="text-lg font-semibold text-center mb-2 font-cascadia">
         {{ sponsor.name }}
       </h3>
       
-      <!-- Sponsor Description -->
+      <!-- 赞助商描述 -->
       <p class="text-gray-600 text-sm text-center mb-3 leading-relaxed">
         {{ sponsor.description }}
       </p>
       
-      <!-- Sponsor Amount -->
+      <!-- 赞助商金额 -->
       <div v-if="sponsor.amount" class="text-center mb-4">
         <span class="text-lg font-bold text-green-600">
           {{ sponsor.amount }}
         </span>
       </div>
       
-      <!-- Visit Website Button -->
+      <!-- 访问网站按钮 -->
       <div class="text-center">
         <a 
           :href="sponsor.website"
@@ -69,9 +69,6 @@ interface Props {
 
 const props = defineProps<Props>()
 
-// Image error handling is now managed by LazyImage component
-
-// Get level-specific styling for badges
 const getLevelStyles = (level: string) => {
   const styles = {
     diamond: 'bg-purple-100 text-purple-800 border border-purple-200',
@@ -82,14 +79,4 @@ const getLevelStyles = (level: string) => {
   return styles[level as keyof typeof styles] || styles.silver
 }
 
-// Get level-specific styling for buttons
-const getLevelButtonStyles = (level: string) => {
-  const styles = {
-    diamond: 'bg-purple-600 hover:bg-purple-700',
-    platinum: 'bg-blue-600 hover:bg-blue-700',
-    gold: 'bg-yellow-600 hover:bg-yellow-700',
-    silver: 'bg-gray-600 hover:bg-gray-700'
-  }
-  return styles[level as keyof typeof styles] || styles.silver
-}
 </script>

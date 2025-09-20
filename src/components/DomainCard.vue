@@ -1,10 +1,11 @@
 <template>
   <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 p-6 border border-gray-200">
-    <!-- Header with service name and status -->
+    <!-- 卡片头，包含服务名称和状态 -->
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center space-x-3">
         <div class="flex-shrink-0">
-          <!-- Provider icon/badge -->
+          <!-- 服务提供商图标/徽章 --> 
+          <!-- 这里可以根据实际情况替换为具体的图标 -->
           <div class="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold"
                :class="getProviderColor(service.provider)">
             {{ getProviderInitial(service.provider) }}
@@ -16,7 +17,7 @@
         </div>
       </div>
       
-      <!-- Status indicator -->
+      <!-- 状态指示器 -->
       <div class="flex items-center space-x-2">
         <div class="flex items-center space-x-1">
           <div class="w-2 h-2 rounded-full" :class="getStatusColor(service.status)"></div>
@@ -27,10 +28,10 @@
       </div>
     </div>
 
-    <!-- Description -->
+    <!-- 服务描述 -->
     <p class="text-gray-600 text-sm mb-4 font-chinese">{{ service.description }}</p>
 
-    <!-- Node status and response time -->
+    <!-- 节点状态和响应时间 -->
     <div class="flex items-center justify-between mb-4">
       <div class="flex items-center space-x-2">
         <div class="w-2 h-2 rounded-full" :class="getNodeStatusColor(service.nodeStatus)"></div>
@@ -41,7 +42,7 @@
       </div>
     </div>
 
-    <!-- Optimized IPs -->
+    <!-- 优选 IP 地址 -->
     <div class="mb-4">
       <h4 class="text-sm font-medium text-gray-700 mb-2">优选 IP 地址:</h4>
       <div class="space-y-2">
@@ -57,7 +58,7 @@
       </div>
     </div>
 
-    <!-- Tags -->
+    <!-- 服务标签 -->
     <div v-if="service.tags && service.tags.length > 0" class="flex flex-wrap gap-2">
       <span v-for="tag in service.tags" :key="tag"
             class="inline-flex items-center px-2 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
@@ -76,22 +77,23 @@ interface Props {
 
 const props = defineProps<Props>()
 
-// Reactive state for copy functionality
+// 复制功能的响应式状态
+// 用于跟踪当前已复制的 IP 地址
 const copiedIP = ref<string | null>(null)
 
-// Copy to clipboard functionality
+// 复制到剪贴板功能
 const copyToClipboard = async (text: string) => {
   try {
     await navigator.clipboard.writeText(text)
     copiedIP.value = text
     
-    // Reset after 2 seconds
+    // 2秒后重置
     setTimeout(() => {
       copiedIP.value = null
     }, 2000)
   } catch (error) {
     console.error('Failed to copy to clipboard:', error)
-    // Fallback for older browsers
+    // 在2秒后重置，旧版浏览器的备选方案
     const textArea = document.createElement('textarea')
     textArea.value = text
     document.body.appendChild(textArea)
@@ -106,7 +108,7 @@ const copyToClipboard = async (text: string) => {
   }
 }
 
-// Provider color mapping
+// 提供者颜色映射
 const getProviderColor = (provider: string) => {
   const colors = {
     cloudflare: 'bg-orange-500',
@@ -119,7 +121,7 @@ const getProviderColor = (provider: string) => {
   return colors[provider as keyof typeof colors] || colors.other
 }
 
-// Provider initial letter
+// 提供者首字母
 const getProviderInitial = (provider: string) => {
   const initials = {
     cloudflare: 'CF',
@@ -132,7 +134,7 @@ const getProviderInitial = (provider: string) => {
   return initials[provider as keyof typeof initials] || 'O'
 }
 
-// Status color mapping
+// 状态颜色映射
 const getStatusColor = (status: string) => {
   const colors = {
     active: 'bg-green-500',
@@ -142,7 +144,7 @@ const getStatusColor = (status: string) => {
   return colors[status as keyof typeof colors] || 'bg-gray-500'
 }
 
-// Status text color mapping
+// 状态文本颜色映射 
 const getStatusTextColor = (status: string) => {
   const colors = {
     active: 'text-green-700',
@@ -152,7 +154,7 @@ const getStatusTextColor = (status: string) => {
   return colors[status as keyof typeof colors] || 'text-gray-700'
 }
 
-// Status text mapping
+// 状态文本映射
 const getStatusText = (status: string) => {
   const texts = {
     active: '正常',
@@ -162,7 +164,7 @@ const getStatusText = (status: string) => {
   return texts[status as keyof typeof texts] || '未知'
 }
 
-// Node status color mapping
+// 节点状态颜色映射
 const getNodeStatusColor = (nodeStatus: string) => {
   const colors = {
     online: 'bg-green-500',
@@ -172,7 +174,7 @@ const getNodeStatusColor = (nodeStatus: string) => {
   return colors[nodeStatus as keyof typeof colors] || 'bg-gray-500'
 }
 
-// Node status text mapping
+// 节点状态文本映射
 const getNodeStatusText = (nodeStatus: string) => {
   const texts = {
     online: '在线',
