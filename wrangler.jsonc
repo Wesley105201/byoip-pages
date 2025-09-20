@@ -1,7 +1,0 @@
-{
-  "name": "byoip-pages",
-  "compatibility_date": "2025-09-21",
-  "assets": {
-    "directory": "./.output/public",
-  }
-}
