@@ -1,0 +1,19 @@
+{
+  "github": {
+    "template": "https://{{mirror}}/gh/{{owner}}/{{repo}}@{{branch}}/{{path}}",
+    "mirror": "cdn.smartcis.cn"
+  },
+  "npm": {
+    "template": "https://{{mirror}}/npm/{{package}}@{{version}}/{{path}}",
+    "mirror": "cdn.smartcis.cn"
+  },
+  "alternatives": {
+    "mirrors": [
+      "fastly.jsdelivr.net",
+      "gcore.jsdelivr.net",
+      "cdn.jsdmirror.com",
+      "cdn.smartcis.cn",
+      "jsdelivr.topthink.com"
+    ]
+  }
+}

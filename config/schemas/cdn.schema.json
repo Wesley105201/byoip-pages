@@ -1,0 +1,59 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "title": "CDN配置模式",
+  "description": "CDN镜像配置模式",
+  "required": ["github", "npm"],
+  "properties": {
+    "github": {
+      "type": "object",
+      "required": ["template", "mirror"],
+      "properties": {
+        "template": {
+          "type": "string",
+          "description": "GitHub CDN URL模板（含占位符）",
+          "pattern": "^https://.*\\{\\{mirror\\}\\}.*\\{\\{owner\\}\\}.*\\{\\{repo\\}\\}.*\\{\\{branch\\}\\}.*\\{\\{path\\}\\}.*$"
+        },
+        "mirror": {
+          "type": "string",
+          "description": "默认GitHub镜像域名",
+          "format": "hostname"
+        }
+      },
+      "additionalProperties": false
+    },
+    "npm": {
+      "type": "object",
+      "required": ["template", "mirror"],
+      "properties": {
+        "template": {
+          "type": "string",
+          "description": "npm CDN URL模板（含占位符）",
+          "pattern": "^https://.*\\{\\{mirror\\}\\}.*\\{\\{package\\}\\}.*\\{\\{version\\}\\}.*\\{\\{path\\}\\}.*$"
+        },
+        "mirror": {
+          "type": "string",
+          "description": "默认npm镜像域名",
+          "format": "hostname"
+        }
+      },
+      "additionalProperties": false
+    },
+    "alternatives": {
+      "type": "object",
+      "properties": {
+        "mirrors": {
+          "type": "array",
+          "description": "可用镜像域名列表",
+          "items": {
+            "type": "string",
+            "format": "hostname"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

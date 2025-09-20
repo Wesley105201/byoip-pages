@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "合作伙伴配置",
+  "type": "object",
+  "properties": {
+    "partners": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-zA-Z0-9-_]+$",
+            "description": "合作伙伴唯一标识符"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "description": "合作伙伴名称"
+          },
+          "logo": {
+            "type": "string",
+            "format": "uri",
+            "description": "合作伙伴logo URL"
+          },
+          "description": {
+            "type": "string",
+            "minLength": 1,
+            "description": "合作伙伴描述"
+          },
+          "website": {
+            "type": "string",
+            "format": "uri",
+            "description": "合作伙伴网站URL"
+          },
+          "type": {
+            "type": "string",
+            "enum": ["platinum", "gold", "silver", "bronze"],
+            "description": "合作伙伴等级"
+          }
+        },
+        "required": ["id", "name", "logo", "description", "website", "type"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": ["partners"],
+  "additionalProperties": false
+}

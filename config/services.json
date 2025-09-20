@@ -1,0 +1,37 @@
+{
+  "services": [
+    {
+      "id": "cloudflare-1",
+      "name": "CloudFlare 优选",
+      "provider": "cloudflare",
+      "description": "CloudFlare CDN IP 优选服务，提供全球加速",
+      "status": "active",
+      "optimizedIPs": ["*.cloudflare.byoip.top", "*.cloudflare.cnae.top"],
+      "nodeStatus": "online",
+      "responseTime": 70,
+      "tags": ["全球加速", "高可用"]
+    },
+    {
+      "id": "netlify-1",
+      "name": "Netlify 优选",
+      "provider": "netlify",
+      "description": "Netlify IP 优选服务",
+      "status": "active",
+      "optimizedIPs": ["*.netlify.byoip.top", "*.netlify.cnae.top"],
+      "nodeStatus": "online",
+      "responseTime": 52,
+      "tags": ["AWS", "全球优化"]
+    },
+    {
+      "id": "vercel-1",
+      "name": "Vercel 优选",
+      "provider": "vercel",
+      "description": "Vercel IP 优选服务",
+      "status": "active",
+      "optimizedIPs": ["*.vercel.byoip.top", "*.vercel.cnae.top"],
+      "nodeStatus": "online",
+      "responseTime": 62,
+      "tags": ["AWS", "全球优化"]
+    }
+  ]
+}
