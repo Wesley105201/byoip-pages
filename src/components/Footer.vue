@@ -1,6 +1,6 @@
 <template>
   <footer
-    class="bg-gray-50 text-gray-1000 border-t border-gray-200 py-6 md:py-5 transition-all duration-300 fixed bottom-0 left-0 right-0 z-10"
+    class="bg-gray-50 text-gray-1000 border-t border-gray-200 py-6 md:py-5 transition-all duration-300 fixed bottom-0 left-0 right-0 z-10 bg-opacity-90 backdrop-blur-sm"
   >
     <div class="container mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex flex-col items-center justify-between gap-4 md:flex-row">
@@ -36,9 +36,3 @@ const footerLinks = [
   { label: '隐私政策', href: '/privacy' },
 ]
 </script>
-
-<style scoped>
-footer {
-  @apply bg-opacity-90 backdrop-blur-sm;
-}
-</style>

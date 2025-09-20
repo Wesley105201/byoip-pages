@@ -151,8 +151,7 @@ export default defineNuxtConfig({
       rollupOptions: {
         output: {
           manualChunks: {
-            vendor: ['vue', '@vue/runtime-core'],
-            utils: ['~/utils/configValidator']
+            vendor: ['vue', '@vue/runtime-core']
           }
         }
       },
