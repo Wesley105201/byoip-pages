@@ -61,7 +61,7 @@ const embeddedConfig = {
 export default defineNuxtConfig({
   compatibilityDate: '2025-09-19',
   devtools: { enabled: true },
-  ssr: false, // SPA 模式
+  ssr: true,
 
   // 指定源码目录
   srcDir: 'src/',
