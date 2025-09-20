@@ -29,6 +29,7 @@
 
     <!-- 实际图片 -->
     <img
+      ref="imageRef"
       v-show="!isLoading && !hasError"
       :src="src"
       :alt="alt"
@@ -57,6 +58,7 @@ const props = withDefaults(defineProps<Props>(), {
   placeholderClass: ''
 })
 
+const imageRef = ref<HTMLImageElement | null>(null)
 const isLoading = ref(true)
 const hasError = ref(false)
 
@@ -69,6 +71,12 @@ const handleError = () => {
   isLoading.value = false
   hasError.value = true
 }
+
+onMounted(() => {
+  if (imageRef.value?.complete) {
+    handleLoad()
+  }
+})
 
 // 当 src 变化时重置状态
 watch(() => props.src, () => {
