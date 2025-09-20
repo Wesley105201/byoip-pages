@@ -2,11 +2,19 @@
   "sponsors": [
     {
       "id": "sponsor-1",
+      "name": "･ᴗ･ 7710",
+      "logo": "https://letteravatar.com/s/avatar.png?text=7&color=#fff8e1&bg=#2e7d32&round=10%&font=Red+Hat+Mono",
+      "description": "老铁666",
+      "website": "",
+      "amount": "¥36.6"
+    },
+    {
+      "id": "sponsor-2",
       "name": "蜜蜂QWQ",
       "logo": "https://cdn.mfawa.top/image/logo.svg",
       "description": "加油！",
       "website": "https://imbee.top",
-      "amount": "¥0"
+      "amount": "¥10"
     }
   ]
 }
