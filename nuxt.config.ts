@@ -86,7 +86,7 @@ export default defineNuxtConfig({
         { name: 'twitter:description', content: 'CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' }
       ],
       link: [
-        { rel: 'icon', type: 'image/x-icon', href: 'https://cdn.mfawa.top/favicon.ico' },
+        { rel: 'icon', type: 'image/x-icon', href: 'https://cdn.jsdmirror.com/gh/FrecklyComb1728/byoip-pages/assets/favicon.ico' },
         { rel: 'canonical', href: 'https://www.byoip.top' }
       ],
       script: [
