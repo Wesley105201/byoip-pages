@@ -5,9 +5,9 @@
       "name": "CloudFlare 优选",
       "provider": "cloudflare",
       "description": "CloudFlare CDN 优选服务，提供全球加速",
-      "status": "active",
+      "status": "maintenance",
       "optimizedIPs": ["*.cloudflare.byoip.top", "*.cloudflare.cnae.top"],
-      "nodeStatus": "online",
+      "nodeStatus": "offline",
       "responseTime": 70,
       "tags": ["全球加速", "高可用"]
     },
