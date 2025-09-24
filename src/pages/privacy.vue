@@ -1,8 +1,4 @@
 <template>
-  <div class="min-h-screen">
-    <!-- Navigation -->
-    <Navigation />
-    
     <div class="container mx-auto px-4 py-8">
       <div class="text-center mb-12">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-cascadia">隐私政策</h1>
@@ -42,16 +38,10 @@
         </div>
       </div>
     </div>
-    <div class="h-16"></div>
-    <!-- Footer -->
-    <Footer />
-  </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import Navigation from '../components/Navigation.vue'
-import Footer from '../components/Footer.vue'
 
 // 页面标题
 useHead({

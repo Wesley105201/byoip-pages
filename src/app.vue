@@ -1,12 +1,8 @@
 <template>
   <div class="min-h-screen bg-white text-gray-900">
-    <!-- Navigation Component -->
     <Navigation />
-    
-    <!-- Main Content Area -->
-    <main class="pb-24"> <!-- 添加底部内边距，防止内容被固定页脚遮挡 -->
       <NuxtPage />
-    </main>
+    <Footer />
   </div>
 </template>
 

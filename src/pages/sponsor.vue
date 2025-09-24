@@ -1,8 +1,4 @@
 <template>
-  <div class="min-h-screen">
-    <!-- 导航 -->
-    <Navigation />
-    
     <!-- 赞助区域 -->
     <div class="bg-gray-50 py-16">
       <div class="container mx-auto px-4">
@@ -153,22 +149,14 @@
           ×
         </button>
         <div class="bg-white rounded-lg p-4 shadow-2xl">
-          <img 
-            :src="modalImage.src"
-            :alt="modalImage.alt"
-            class="w-[600px] h-[600px] object-contain"
-          />
+          <img :src="modalImage.src" :alt="modalImage.alt" class="w-[600px] h-[600px] object-contain"/>
         </div>
       </div>
     </div>
-    <Footer />
-  </div>
-  
 </template>
 
 <script setup lang="ts">
-import Footer from '~/components/Footer.vue'
-// 使用构建时注入的赞助商配置
+// 使用构建时注入的配置
 const sponsorsConfig = useSponsors()
 const sponsors = computed(() => sponsorsConfig.value?.sponsors || [])
 const error = ref(null)

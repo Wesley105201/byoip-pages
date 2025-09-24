@@ -1,8 +1,4 @@
 <template>
-  <div class="min-h-screen">
-    <!-- 导航 -->
-    <Navigation />
-    
     <div class="container mx-auto px-4 py-8">
       <!-- 头部区域 -->
       <div class="text-center mb-12">
@@ -46,13 +42,10 @@
         <p class="text-gray-500">请稍后再试或联系管理员</p>
       </div>
     </div>
-    <Footer />
-  </div>
 </template>
 
 <script setup lang="ts">
-import Footer from '~/components/Footer.vue'
-// 使用构建时注入的合作伙伴配置
+// 使用构建时注入的配置
 const partnersConfig = usePartners()
 const partners = computed(() => partnersConfig.value?.partners || [])
 const error = ref(null)

@@ -1,8 +1,4 @@
 <template>
-  <div class="min-h-screen">
-    <!-- Navigation -->
-    <Navigation />
-    
     <div class="container mx-auto px-4 py-8">
     
       <!-- 标题部分 -->
@@ -62,13 +58,11 @@
 
         <!-- 服务列表 -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div
-            v-for="service in services.services"
-            :key="service.id"
-          >
+          <div v-for="service in services.services" :key="service.id">
             <DomainCard :service="service" />
           </div>
         </div>
+        <div class="h-5"></div>
       </div>
 
       <!-- 空状态 -->
@@ -84,12 +78,9 @@
         </button>
       </div>
     </div>
-  </div>
-  <Footer />
 </template>
 
 <script setup lang="ts">
-import Footer from '~/components/Footer.vue'
 
 // 使用响应式文本适配
 const { finalText, textClasses } = useResponsiveText({
@@ -100,11 +91,8 @@ const { finalText, textClasses } = useResponsiveText({
   breakpoint: 768
 })
 
-// 使用静态配置系统
-const { services, isLoaded } = useStaticConfig()
-
-// 错误状态管理
-const errors = ref({ services: null as string | null })
+const { services, isLoaded } = useStaticConfig() // 使用静态配置
+const errors = ref({ services: null as string | null }) // 记录错误
 
 // 检查配置是否加载
 onMounted(() => {
