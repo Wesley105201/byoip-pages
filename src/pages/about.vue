@@ -28,13 +28,14 @@
             如果您有任何问题、建议或合作意向，欢迎通过以下方式联系我们：
           </p>
           <ul class="list-disc pl-6 mt-2">
-            <li>GitHub: <a href="https://github.com/FrecklyComb1728/byoip-pages" class="text-blue-600 hover:text-blue-800">github.com</a></li>
+            <li>GitHub: <a href="https://github.com/FrecklyComb1728/byoip-pages" class="text-blue-600 hover:text-blue-800">FrecklyComb1728/byoip-pages</a></li>
             <li>Email: me@imbee.top</li>
             <li>QQ：3979158171</li>
           </ul>
         </div>
       </div>
     </div>
+    <!-- <div class="h-5"></div> -->
 </template>
 
 <script setup>
