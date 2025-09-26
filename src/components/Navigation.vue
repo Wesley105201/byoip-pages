@@ -9,6 +9,7 @@
           @click="handleNavigation('/', $event)"
           class="navigation-logo"
         >
+          <img src="https://cdn.jsdmirror.com/gh/FrecklyComb1728/byoip-pages@main/src/assets/favicon.ico" alt="favicon" class="navigation-logo-img" />
           NB 优选服务
         </a>
         
@@ -90,6 +91,15 @@ console.log('Navigation component loaded')
   font-weight: bold;
   color: #1f2937;
   text-decoration: none;
+}
+
+.navigation-logo img,
+.navigation-logo-img {
+  display: inline-block;
+  width: 40px;
+  height: 32px;
+  margin-right: 8px;
+  vertical-align: middle;
 }
 
 .navigation-logo:hover {

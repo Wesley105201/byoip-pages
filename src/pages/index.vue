@@ -3,10 +3,10 @@
     
       <!-- 标题部分 -->
       <div class="text-center mb-12">
-        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-cascadia">NB 优选服务</h1>
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-chinese">NB 优选服务</h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto font-chinese">
           CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
-        </p>
+        </p>  
         
         <!-- 提示 -->
         <div class="mt-8 mx-auto max-w-2xl">
