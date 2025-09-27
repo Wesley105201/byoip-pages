@@ -8,7 +8,6 @@
   - [合作伙伴配置 (partners.json)](#合作伙伴配置-partnersjson)
   - [赞助商配置 (sponsors.json)](#赞助商配置-sponsorsjson)
   - [CDN 配置 (cdn.json)](#cdn-配置-cdnjson)
-  - [性能配置 (performance.json)](#性能配置-performancejson)
 - [配置文件验证](#配置文件验证)
 - [配置热更新](#配置热更新)
 - [最佳实践](#最佳实践)
