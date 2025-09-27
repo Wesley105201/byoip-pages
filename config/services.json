@@ -6,8 +6,8 @@
       "provider": "cloudflare",
       "description": "CloudFlare CDN 优选服务，提供全球加速",
       "status": "maintenance",
-      "optimizedIPs": ["*.cloudflare.byoip.top", "*.cloudflare.cnae.top"],
-      "nodeStatus": "offline",
+      "optimizedIPs": ["this-is-the-preferred-free-option.if-you-paid.youve-been-scammed.本优选免费.你如果付费的你被骗了.cf.cnae.top", "this-is-the-preferred-free-option.if-you-paid.youve-been-scammed.本优选免费.你如果付费的你被骗了.cloudflare.byoip.top"],
+      "nodeStatus": "online",
       "responseTime": 70,
       "tags": ["全球加速", "高可用"]
     },
