@@ -7,7 +7,7 @@
 ![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vue.js)
 ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript)
 
-提供 CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
+提供 CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
 
 [在线演示](https://www.byoip.top) · [使用文档](./docs/docs.md) · [配置教程](./docs/config.md)
 

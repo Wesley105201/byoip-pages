@@ -12,6 +12,17 @@
       "tags": ["全球加速", "高可用"]
     },
     {
+      "id": "edgeone-1",
+      "name": "EdgeOne 优选",
+      "provider": "edgeone",
+      "description": "EdgeOne CDN 优选服务",
+      "status": "active",
+      "optimizedIPs": ["*.edgeone.byoip.top", "*.edgeone.cnae.top"],
+      "nodeStatus": "online",
+      "responseTime": 62,
+      "tags": ["Tencent", "全球优化"]
+    },
+    {
       "id": "netlify-1",
       "name": "Netlify 优选",
       "provider": "netlify",

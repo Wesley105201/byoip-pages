@@ -5,7 +5,7 @@
       <div class="text-center mb-12">
         <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-chinese">NB 优选服务</h1>
         <p class="text-xl text-gray-600 max-w-3xl mx-auto font-chinese">
-          CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
+          CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
         </p>  
         
         <!-- 提示 -->
@@ -121,7 +121,7 @@ useHead({
   meta: [
     {
       name: 'description',
-      content: 'CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务'
+      content: 'CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务'
     }
   ]
 })

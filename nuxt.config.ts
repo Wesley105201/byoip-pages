@@ -75,15 +75,15 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-        { name: 'description', content: 'CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' },
+        { name: 'description', content: 'CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' },
         { name: 'keywords', content: 'CDN, IP优选, CloudFlare, Vercel, Netlify, 网络加速, 节点监测' },
         { name: 'author', content: '© NB 优选服务' },
         { property: 'og:title', content: '© NB 优选服务' },
-        { property: 'og:description', content: 'CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' },
+        { property: 'og:description', content: 'CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' },
         { property: 'og:type', content: 'website' },
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: '© NB 优选服务' },
-        { name: 'twitter:description', content: 'CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' }
+        { name: 'twitter:description', content: 'CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务' }
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: 'https://cdn.jsdmirror.com/gh/FrecklyComb1728/byoip-pages@main/src/assets/favicon.ico' },
@@ -102,7 +102,7 @@ export default defineNuxtConfig({
               "@context": "https://schema.org",
               "@type": "WebApplication",
               "name": "NB 优选服务",
-              "description": "CloudFlare、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务",
+              "description": "CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务",
               "applicationCategory": "NetworkingApplication",
               "operatingSystem": "Web Browser",
             };
